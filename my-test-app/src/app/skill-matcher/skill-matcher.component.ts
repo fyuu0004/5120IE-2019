@@ -13,13 +13,13 @@ export class SkillMatcherComponent implements OnInit {
 
   englishContent: string[] = ["Skill Matcher (With Experience):", "1. Please select your industry:", "-----------Step 1-----------", "2. Please select your occupation (You can add at most three selections):", "-----------Step 2-----------", "Add", "3. Select a location where you want to find fair work:",
     "-----------Step 3-----------", "Find Your Match",
-    "Fastfood", "For this industry, next month ", " is predicted to have ", " job posting online.", "The best occupation for your skill set under this industry is: ", "Retail", "Hospitality", "Go Back", "Welcome to Skill Matcher",
+    "Fastfood", "Sub-Industry: ", " vacancies forecasted.", "Region: ", "This is the forecasted numbers of job-adverticements for this occupation & sub-industry for next month.", "Retail", "Hospitality", "Go Back", "Welcome to Skill Matcher",
     "This feature will help you find the best job for your skill set using trend from online job website like SEEK, Indeed etc.", "Do you have any working experience?", "Yes", "No",
     "Skill Matcher (No Experience): ", "Communication Skill: ", "Building Relationships: ", "Team Work: ", "Detail-Oriented: ", "Planning: ", "Problem Solving: ", "Organisational Skills: ",
     "Time Management: ", "Project Management: ", "Research: ", "Please give a point from 0 to 10.", "For this industry, ", " is the most suitable sub-Industry for your condition.",
     "Evaluate yourself from 0 (Poor) to 10 (Excellent): ", "Score: "];
   chineseContent: string[] = ["有工作经验：", "1.请选择你的行业：", "-----------步骤1-----------", "2.请选择你的职位(你最多能选三个)", "-----------步骤2-----------", "添加", "3.选一个你想工作的地点", "-----------步骤3-----------", "开始匹配",
-    "快餐", "该行业", "下个月可能有", "网上招工", "你得技能在本行业得最佳搭配是: ", "零售", "招待", "后退", "欢迎你使用技能匹配功能", "本功能会帮助你找到最适合你职业技能的工作，资源来源于网上招工网站，如SEEK， Indeed等等。", "你有工作经验吗？",
+    "快餐", "子产业", "个预期空缺", "地区：", "这是下个月对于本职业和子产业的预期职位空缺。", "零售", "招待", "后退", "欢迎你使用技能匹配功能", "本功能会帮助你找到最适合你职业技能的工作，资源来源于网上招工网站，如SEEK， Indeed等等。", "你有工作经验吗？",
     "有", "没有", "评价你自己：", "交流技巧: ", "人际关系: ", "团队合作: ", "注重细节: ", "计划规划: ", "解决问题: ", "组织能力: ", "时间管理: ", "项目管理: ", "学习研究: ", "请输入0到10的数字", "对于本行业", "是最适合你的子产业", "分数:"];
   showContent: string[] = [];
 
@@ -64,6 +64,10 @@ export class SkillMatcherComponent implements OnInit {
   fastfoodOccupation: string = "";
   retailOccupation: string = "";
   hospitalityOccupation: string = "";
+
+  fPicSelect: string = "";
+  rPicSelect: string = "";
+  hPicSelect: string = "";
 
   matcherFormGroupOne = new FormGroup({
     industryCtrl: new FormControl("", Validators.required),
@@ -280,6 +284,9 @@ export class SkillMatcherComponent implements OnInit {
         this.hospitalityVac = this.regionalForecastTable[i].itVacEmp;
     }
     console.log(table)
+
+    this.fPicSelect = this.fastfoodOccupation;
+    
     this.hidden = true;
   }
 

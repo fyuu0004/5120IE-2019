@@ -1,0 +1,101 @@
+<head>
+  <title>Pay checker - 19th dollar</title>
+</head>
+<div class="wrap">
+  <div class="checker-wrap" layout="row">
+    <div style="margin: 15px 0 15px 0; text-align:center;">
+      <p class="note"><b>{{showContent[14]}}</b></p>
+      <p class="note"><b>{{showContent[17]}}</b></p>
+    </div>
+    <div class="checker-cal-wrap" style="height: 700px; margin: 15px 15px 0 25px; padding:10px 25px 0 25px ;" [ngSwitch]="true">
+      <div style="margin: 5px 5px 5px 5px; border-bottom-color: black; border: 3px 3px 3px 3px">
+        <mat-vertical-stepper linear #stepper>
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>{{showContent[1]}}</ng-template>
+              <mat-form-field>
+                <mat-select placeholder={{showContent[2]}} formControlName="firstCtrl" required (selectionChange)="industryChange(); prepareTable()">
+                  <mat-option *ngFor="let industry of industries" [value]="industry">
+                    {{industry}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-raised-button color="primary" matStepperNext>{{showContent[16]}}</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel>{{showContent[18]}}</ng-template>
+              <div>
+                <label>{{showContent[3]}}</label>
+                <mat-form-field>
+                  <mat-select placeholder={{showContent[4]}} formControlName="age" required>
+                    <mat-option *ngFor="let age of ages" [value]="age" (click)="detailChange(); getAllWorkType()">
+                      {{age}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div>
+                <label>{{showContent[5]}}</label>
+                <mat-form-field>
+                  <mat-select placeholder={{showContent[6]}} formControlName="worktype" required>
+                    <mat-option *ngFor="let workType of workTypes" [value]="workType" (click)="detailChange(); getAllLevel()">
+                      {{workType}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div>
+                <label>{{showContent[7]}}</label>
+                <mat-form-field>
+                  <mat-select placeholder={{showContent[8]}} formControlName="level" required>
+                    <mat-option *ngFor="let level of levels" [value]="level" (click)="detailChange()">
+                      {{level}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field><p matTooltip="{{showContent[25]}}" matTooltipClass="tooltip-red" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over" style="color: red; width: 30px; height: 56.56px; display:inline-block"><span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span></p>
+              </div>
+              <div class="button-row">
+                <button mat-raised-button color="primary" matStepperPrevious>{{showContent[19]}}</button>
+                <button mat-raised-button [color]="'submit'" (click)="submit()">{{showContent[9]}}</button>
+              </div>
+            </form>
+          </mat-step>
+        </mat-vertical-stepper>
+        
+      </div>
+    </div>
+    <div class="checker-res-wrap" style="height: 650px; margin: 15px 25px 0 15px; font-size: 20px; padding:10px 25px 0 25px;" *ngIf="turnUp">
+      <div style="margin: 5px 5px 5px 5px; border-bottom-color: black; border: 3px 3px 3px 3px">
+        <div>
+          <h4><b>{{showContent[15]}}</b></h4>
+        </div>
+        <div>
+          <div>
+            <p><b>{{showContent[20]}}</b>{{firstFormGroup.value.firstCtrl}}</p>
+            <p><b>{{showContent[21]}}</b>{{secondFormGroup.value.age}}</p>
+            <p><b>{{showContent[22]}}</b>{{secondFormGroup.value.worktype}}</p>
+            <p><b>{{showContent[23]}}</b>{{secondFormGroup.value.level}}</p>
+          </div>
+          <br />
+          <p><b>{{showContent[11]}}</b></p>
+          <p><b>{{showContent[24]}}</b>{{hourlyPayRate}}</p>
+          <p><b>{{showContent[12]}}</b>{{saturday}}</p>
+          <p><b>{{showContent[13]}}</b>{{sunday}}</p>
+          <br />
+          <p>{{showContent[27]}}</p>
+          <div class="button-row">
+            <button mat-raised-button color="warn" routerLink="/solutions">{{showContent[28]}}</button>
+            <button mat-raised-button [color]="'submit'" routerLink="/thanks">{{showContent[29]}}</button>
+          </div>
+          <!--<button mat-raised-button color="primary" (click)="resetButton(); stepper.reset()">Reset</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

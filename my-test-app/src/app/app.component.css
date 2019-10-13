@@ -1,0 +1,46 @@
+
+
+@media (max-width: 991.98px) {
+  header .navbar .nav-link {
+    padding: .5rem .5rem;
+  }
+}
+
+header .navbar .nav-link:hover {
+  color: #fff !important;
+  background-color: #6c5b7b;
+  font-weight: 500;
+}
+
+header .navbar .nav-link.active {
+  background-color: #6c5b7b;
+  color: #fff;
+}
+
+header .navbar.navbar-light .nav-link {
+  color: #000;
+}
+
+header .navbar.navbar-light .nav-link.active {
+  background: #6c5b7b;
+  color: #fff;
+}
+
+header .navbar .nav-item.active > a {
+  color: #6c5b7b !important;
+  font-weight: bold;
+}
+
+.column {
+  width: 50%;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+

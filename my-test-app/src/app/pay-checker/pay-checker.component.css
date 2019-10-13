@@ -1,0 +1,65 @@
+.note {
+  font-size: 20px;
+  font-family: Arial;
+}
+
+.mat-submit {
+  background-color: green;
+  color: #fff;
+}
+
+.button-row button {
+  margin-right: 20px;
+}
+
+.checker-wrap {
+  margin: 0 20px;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.checker-cal-wrap {
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+}
+
+.checker-res-wrap {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
+.tooltip-red {
+  background-color: #b71c1c;
+  font-size:18px;
+}
+
+label {
+  margin-right: 15px;
+}
+
+p {
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+
+  .checker-wrap {
+    margin: 0 5px;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .checker-cal-wrap {
+    width: 100%;
+    vertical-align: top;
+  }
+
+  .checker-res-wrap {
+    width: 100%;
+    vertical-align: top;
+  }
+
+}

@@ -1,0 +1,69 @@
+<head>
+  <title>Visualisation - 19th dollar</title>
+</head>
+<div class="wrap" [ngSwitch]="visualisationNo">
+  <div *ngSwitchCase="1">
+    <div class="button-wrap">
+      <div>
+        <button class="v-button-selected" (click)="visualisationOne()" mat-raised-button [color]="'selected'">{{showContent[0]}}</button>
+        <button class="v-button" (click)="visualisationTwo()" mat-raised-button>{{showContent[1]}}</button>
+        <button class="v-button" (click)="visualisationThree()" mat-raised-button>{{showContent[2]}}</button>
+        <button class="v-button" (click)="visualisationFour()" mat-raised-button>{{showContent[3]}}</button>
+      </div>
+    </div>
+    <div>
+      <mat-progress-bar mode="determinate" value="25"></mat-progress-bar>
+    </div>
+    <div class="vis">
+      <iframe src="https://public.tableau.com/views/Storyboard_v01/Story1?:embed=y&:toolbar=no&:display_count=no&:showVizHome=no&:showShareOptions=false" style="width:100%; height:850px"></iframe>
+    </div>
+  </div>
+  <div *ngSwitchCase="2">
+    <div class="button-wrap">
+      <div>
+        <button class="v-button" (click)="visualisationOne()" mat-raised-button>{{showContent[0]}}</button>
+        <button class="v-button-selected" (click)="visualisationTwo()" mat-raised-button [color]="'selected'">{{showContent[1]}}</button>
+        <button class="v-button" (click)="visualisationThree()" mat-raised-button>{{showContent[2]}}</button>
+        <button class="v-button" (click)="visualisationFour()" mat-raised-button>{{showContent[3]}}</button>
+      </div>
+    </div>
+    <div>
+      <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+    </div>
+    <div class="vis">
+      <iframe src="https://public.tableau.com/views/Story_2_15706701140110/Story2?:embed=y&:toolbar=no&:display_count=no&:showVizHome=no&:showShareOptions=false" style="width:100%; height:850px"></iframe>
+    </div>
+  </div>
+  <div *ngSwitchCase="3">
+    <div class="button-wrap">
+      <div>
+        <button class="v-button" (click)="visualisationOne()" mat-raised-button>{{showContent[0]}}</button>
+        <button class="v-button" (click)="visualisationTwo()" mat-raised-button>{{showContent[1]}}</button>
+        <button class="v-button-selected" (click)="visualisationThree()" mat-raised-button [color]="'selected'">{{showContent[2]}}</button>
+        <button class="v-button" (click)="visualisationFour()" mat-raised-button>{{showContent[3]}}</button>
+      </div>
+    </div>
+    <div>
+      <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>
+    </div>
+    <div class="vis">
+      <iframe src="https://public.tableau.com/views/Story3_15706706110750/Story3?:embed=y&:toolbar=no&:display_count=no&:showVizHome=no&:showShareOptions=false" style="width:100%; height:850px"></iframe>
+    </div>
+  </div>
+  <div *ngSwitchCase="4">
+    <div class="button-wrap">
+      <div>
+        <button class="v-button" (click)="visualisationOne()" mat-raised-button>{{showContent[0]}}</button>
+        <button class="v-button" (click)="visualisationTwo()" mat-raised-button>{{showContent[1]}}</button>
+        <button class="v-button" (click)="visualisationThree()" mat-raised-button>{{showContent[2]}}</button>
+        <button class="v-button-selected" (click)="visualisationFour()" mat-raised-button [color]="'selected'">{{showContent[3]}}</button>
+      </div>
+    </div>
+    <div>
+      <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+    </div>
+    <div class="vis">
+      <iframe src="https://public.tableau.com/views/Story4_15706712851820/Story4?:embed=y&:toolbar=no&:display_count=no&:showVizHome=no&:showShareOptions=false" style="width:100%; height:850px"></iframe>
+    </div>
+  </div>
+</div>

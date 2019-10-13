@@ -1,0 +1,41 @@
+.home-button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 19px;
+  border-radius: 2px;
+  background: #6c5b7b;
+  font: normal normal bold 15px arial;
+  color: white;
+  text-decoration: none;
+  border: 1px solid;
+}
+
+  .home-button:hover,
+  .home-button:focus {
+    background: #6c5b7b;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .home-button:active {
+    background: #6c5b7b;
+  }
+
+.mat-home {
+  background-color: #6c5b7b;
+  color: #fff;
+  border-radius: 6px;
+  width: 150px;
+  height: 50px;
+}
+
+img {
+  max-height: 80%;
+  max-width: 80%;
+}
+
+p {
+  font-size: 18px;
+  color: black;
+}

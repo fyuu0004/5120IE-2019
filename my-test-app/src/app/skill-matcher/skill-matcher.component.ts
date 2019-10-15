@@ -20,12 +20,14 @@ export class SkillMatcherComponent implements OnInit {
     "Evaluate yourself from 0 (Poor) to 10 (Excellent): ", "Score: ", "This feature is meant to help you match the best occupation for whatever situation you’re in. The feature uses data from job postings from SEEK and Indeed to create a prediction for the occupation that’s the best fit for your skill-set and that’s most in-demand in your region in Victoria!",
     "Since you’ve worked previously, enter all of the occupations you’ve had experience with in the past to help us find the best occupation for you to get into!",
     "Since you’re new to the job market and don’t have the experience, let us figure out the best occupation for you based on your soft-skills!",
-    "To the left, you’ll notice a set of the Top 10 skills deemed important by employers on SEEK and Indeed. Please rate yourself on a scale from 0 (Poor) to 10 (Excellent). Be honest so that we can help you figure out what job you might be most likely to be hired for!"];
+    "To the left, you’ll notice a set of the Top 10 skills deemed important by employers on SEEK and Indeed. Please rate yourself on a scale from 0 (Poor) to 10 (Excellent). Be honest so that we can help you figure out what job you might be most likely to be hired for!",
+    "Home", "Skill Matcher"];
   chineseContent: string[] = ["有工作经验：", "1.请选择你的行业：", "-----------步骤1-----------", "2.请选择你的职位(你最多能选三个)", "-----------步骤2-----------", "添加", "3.选一个你想工作的地点", "-----------步骤3-----------", "开始匹配",
     "快餐", "子产业", "个预期空缺", "地区：", "这是下个月对于本职业和子产业的预期职位空缺。", "零售", "招待", "后退", "欢迎你使用技能匹配功能", "本功能会帮助你找到最适合你职业技能的工作，资源来源于网上招工网站，如SEEK， Indeed等等。", "你有工作经验吗？",
     "有", "没有", "评价你自己：", "交流技巧: ", "人际关系: ", "团队合作: ", "注重细节: ", "计划规划: ", "解决问题: ", "组织能力: ", "时间管理: ", "项目管理: ", "学习研究: ", "请输入0到10的数字", "对于本行业", "是最适合你的子产业", "分数:",
     "此功能旨在帮助您在任何情况下都匹配最佳职业。该功能使用SEEK和Indeed职位发布中的数据来为最适合您的技能设置的职业创建预测，并且满足您所在的维多利亚地区的需求！", "由于您以前曾工作过，请输入您过去曾经经历过的所有职业，以帮助我们找到最适合您的职业！",
-    "由于您是新手，而且没有经验，所以让我们根据您的软技能为您找出最佳的职业！", "在左侧，您会注意到SEEK和Indeed上雇主认为重要的十大技能。 请以0（差）至10（优秀）的等级为自己打分。 老实说，这样我们可以帮助您确定您最有可能被雇用的工作！"];
+    "由于您是新手，而且没有经验，所以让我们根据您的软技能为您找出最佳的职业！", "在左侧，您会注意到SEEK和Indeed上雇主认为重要的十大技能。 请以0（差）至10（优秀）的等级为自己打分。 老实说，这样我们可以帮助您确定您最有可能被雇用的工作！",
+    "首页", "技能匹配"];
   showContent: string[] = [];
 
   jobFilterTable: JobFilterTable[] = [];

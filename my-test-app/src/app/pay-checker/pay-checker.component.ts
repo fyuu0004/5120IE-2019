@@ -55,10 +55,10 @@ export class PayCheckerComponent implements OnInit {
     "On Saturday: ", "On Sunday: ", "NOTE： The result calculated by pay checker is based on Victoria regulations in Australia.", "Your Result:", "Next",
     "If you do not paid tax for your income, the calculated result cannot be used as a reference for your payment standard.", "Fill out your details", "Back",
     "Your industry: ", "Your age group: ", "Your work type: ", "Your level: ", "On Weekdays: ", "Category of authority in an organization (You can see details in classification in related-information page ).",
-    "What's the level?", "Are you satisfied with your payment?", "No", "Yes"];
+    "What's the level?", "Are you satisfied with your payment?", "No", "Yes", "Home"];
   chineseContent: string[] = ["薪资计算器", "选择你的行业", "-----------步骤 1-----------", "年龄", "-----------步骤 2-----------", "工作类型", "-----------步骤 3-----------", "工作分级", "-----------步骤 4-----------",
     "计算！", "请按顺序填写并提交", "你的时薪为: ", "周六时为:", "周日时为:", "注意：该计算结果仅基于维州法规。", "计算结果：", "下一步", "如果您的工资没交税，那么该计算结果并不适用于您。", "填写详细信息",
-    "返回", "你的行业： ", "你的年龄组： ", "你的工作类型： ", "你的等级： ", "周一到周五为: ", "你的技能以及该技能的证书（你可以在相关信息的分级中查看详情）。", "什么是工作等级？", "你对这个结果满意吗？", "否", "是"];
+    "返回", "你的行业： ", "你的年龄组： ", "你的工作类型： ", "你的等级： ", "周一到周五为: ", "你的技能以及该技能的证书（你可以在相关信息的分级中查看详情）。", "什么是工作等级？", "你对这个结果满意吗？", "否", "是", "首页"];
   showContent: string[] = [];
 
   turnUp: boolean = false;

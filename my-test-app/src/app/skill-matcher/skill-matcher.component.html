@@ -8,7 +8,6 @@
         <div class="container">
           <div class="row align-items-center justify-content-center site-hero-inner">
             <div class="col-md-8 text-center">
-
               <div class="mb-5 element-animate fadeInUp element-animated">
                 <div class="block-17">
                   <h1 class="heading mb-4">{{showContent[17]}}</h1>
@@ -39,13 +38,20 @@
   </div>
   <div *ngIf="!standingBy">
     <div *ngIf="experience">
+      <div class="block-45"></div>
+      <div class="my-breadcrumb">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>
+            <a routerLink="/home">{{showContent[42]}}</a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a>{{showContent[43]}}</a>
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </div>
       <div class="matcher-wrap">
         <mat-tab-group mat-stretch-tabs>
           <mat-tab label="{{showContent[0]}}">
-            <!--<div class="switcher">
-    <button class="switch-matcher" mat-raised-button [color]="'switch-disable'" [disabled]="experience" (click)="experienceSwitch()">{{showContent[0]}}</button>
-    <button class="switch-matcher" mat-raised-button [color]="'switch'" [disabled]="!experience" (click)="noExperienceSwitch()">{{showContent[22]}}</button>
-  </div>-->
             <div *ngIf="!hidden">
               <div class="matcher-inner-wrap">
                 <div class="matcher-input-wrap">
@@ -91,7 +97,7 @@
                         </mat-option>
                       </mat-select>
                     </mat-form-field>
-                    <div>
+                    <div class="match-btn">
                       <button mat-raised-button class="matcher-btn" [disabled]="!(selectedOccupation.length>0 && matcherFormGroupTwo.valid)" (click)="bestMatch()">{{showContent[8]}}</button>
                     </div>
                   </form>
@@ -319,7 +325,7 @@
                       </mat-slider>
                       <label>{{showContent[37]}}{{research}}</label>
                     </div>
-                    <div>
+                    <div class="match-btn">
                       <button class="matcher-btn" mat-raised-button (click)="softMatch()">{{showContent[8]}}</button>
                     </div>
                   </div>
@@ -380,9 +386,11 @@
                   </mat-card-content>
                 </mat-card>
                 <!--<h4>{{showContent[15]}}</h4>
-  <p>{{showContent[34]}}<b>{{hospitalityRecom}}</b>{{showContent[35]}}</p>
-  <p>{{showContent[13]}}<b>{{hospitalityOccupation}}</b></p>-->
+            <p>{{showContent[34]}}<b>{{hospitalityRecom}}</b>{{showContent[35]}}</p>
+            <p>{{showContent[13]}}<b>{{hospitalityOccupation}}</b></p>-->
+                <
               </div>
+              <
               <div class="matcher-back">
                 <button class="matcher-back-btn" mat-raised-button [color]="'add'" (click)="softBack()">{{showContent[16]}}</button>
               </div>
@@ -393,6 +401,17 @@
     </div>
 
     <div *ngIf="!experience">
+      <div class="block-45"></div>
+      <div class="my-breadcrumb">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>
+            <a routerLink="/home">{{showContent[42]}}</a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a>{{showContent[43]}}</a>
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </div>
       <div class="matcher-wrap">
         <mat-tab-group mat-stretch-tabs [selectedIndex]="1">
           <mat-tab label="{{showContent[0]}}" style="font-size: 20px;">
@@ -441,7 +460,7 @@
                         </mat-option>
                       </mat-select>
                     </mat-form-field>
-                    <div>
+                    <div class="match-btn">
                       <button class="matcher-btn" mat-raised-button [disabled]="!(selectedOccupation.length>0 && matcherFormGroupTwo.valid)" (click)="bestMatch()">{{showContent[8]}}</button>
                     </div>
                   </form>
@@ -669,7 +688,7 @@
                       </mat-slider>
                       <label>{{showContent[37]}}{{research}}</label>
                     </div>
-                    <div>
+                    <div class="match-btn">
                       <button mat-raised-button class="matcher-btn" (click)="softMatch()">{{showContent[8]}}</button>
                     </div>
                   </div>
@@ -730,8 +749,8 @@
                   </mat-card-content>
                 </mat-card>
                 <!--<h4>{{showContent[15]}}</h4>
-      <p>{{showContent[34]}}<b>{{hospitalityRecom}}</b>{{showContent[35]}}</p>
-      <p>{{showContent[13]}}<b>{{hospitalityOccupation}}</b></p>-->
+            <p>{{showContent[34]}}<b>{{hospitalityRecom}}</b>{{showContent[35]}}</p>
+            <p>{{showContent[13]}}<b>{{hospitalityOccupation}}</b></p>-->
               </div>
               <div class="matcher-back">
                 <button class="matcher-back-btn" mat-raised-button [color]="'add'" (click)="softBack()">{{showContent[16]}}</button>

@@ -86,22 +86,16 @@
             <div class="col-md-6 col-lg-4 mb-5">
               <div class="block-43">
                 <div class="block-43-icon" align="center">
-                  <a href="https://www.the19dollar.ml/alice0" style="margin:0 auto" align="center">
+                  <a style="margin:0 auto" align="center" routerLink="/alice0" (click)="jumpToPageTop()">
                     <img src="assets/images/Alice.jpg"/>
                   </a>
-                  <!--<a class="icon-wrapper" style="margin: 1.235em auto 3.235em auto" href="https://www.the19dollar.ml/alice0">
-    <span style="cursor: pointer">
-      <span class="icon fa fa-user text-primary"></span>
-    </span>
-  </a>-->
+                  
                 </div>
                 <div class="block-43-text">
                   <h3 class="block-43-heading" style="text-align: center">{{showContent[9]}}</h3>
                   <p>{{showContent[10]}}</p>
                   <div style="text-align:center;">
-                    <a href="https://www.the19dollar.ml/alice0">
-                      <button mat-raised-button [color]="'home'">{{showContent[13]}}</button>
-                    </a>
+                    <button mat-raised-button [color]="'home'" routerLink="/alice0" (click)="jumpToPageTop()">{{showContent[13]}}</button>
                   </div>
                 </div>
               </div>
@@ -109,23 +103,17 @@
 
             <div class="col-md-6 col-lg-4 mb-5">
               <div class="block-43">
-                <div class="block-43-icon"  align="center">
-                  <a href="https://www.the19dollar.ml/bob">
+                <div class="block-43-icon" align="center">
+                  <a routerLink="/bob" (click)="jumpToPageTop()">
                     <img src="assets/images/Bob.jpg" align="middle"/>
                   </a>
-                  <!--<a class="icon-wrapper" style="margin: 1.235em auto 3.235em auto" href="https://www.the19dollar.ml/bob">
-    <span style="cursor: pointer">
-      <span class="icon fa fa-user text-primary"></span>
-    </span>
-  </a>-->
+                  
                 </div>
                 <div class="block-43-text">
                   <h3 class="block-43-heading" style="text-align: center">{{showContent[7]}}</h3>
                   <p>{{showContent[8]}}</p>
                   <div style="text-align:center">
-                    <a href="https://www.the19dollar.ml/bob">
-                      <button mat-raised-button [color]="'home'">{{showContent[13]}}</button>
-                    </a>
+                    <button mat-raised-button [color]="'home'" routerLink="/bob" (click)="jumpToPageTop()">{{showContent[13]}}</button>
                   </div>
                 </div>
               </div>
@@ -136,7 +124,7 @@
             <div class="col-md-6 col-lg-4 mb-5">
               <div class="block-43">
                 <div class="block-43-icon" align="center">
-                  <a href="https://www.the19dollar.ml/daisy">
+                  <a routerLink="/daisy" (click)="jumpToPageTop()">
                     <img src="assets/images/Daisy.jpg">
                   </a>
                   <!--<a class="icon-wrapper" style="margin: 1.235em auto 3.235em auto" href="https://www.the19dollar.ml/daisy">
@@ -149,9 +137,7 @@
                   <h3 class="block-43-heading" style="text-align: center">{{showContent[11]}}</h3>
                   <p>{{showContent[12]}}</p>
                   <div style="text-align:center">
-                    <a href="https://www.the19dollar.ml/daisy">
-                      <button mat-raised-button [color]="'home'">{{showContent[13]}}</button>
-                    </a>
+                    <button mat-raised-button [color]="'home'" routerLink="/daisy" (click)="jumpToPageTop()">{{showContent[13]}}</button>
                   </div>
                 </div>
               </div>

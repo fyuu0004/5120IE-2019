@@ -263,6 +263,10 @@ label {
   font-size: 18px;
 }
 
+.match-btn {
+  margin-top: 15px;
+}
+
 @media screen and (max-width: 600px) {
   .switch-matcher {
     width: 80%;
@@ -282,5 +286,28 @@ label {
     border-color: black;
     background-color: wheat;
     vertical-align: top;
+  }
+
+  .matcher-side-wrap {
+    display: none;
+  }
+
+  .matcher-input-wrap {
+    width: 100%;
+    padding: 0;
+  }
+
+  .matcher-inner-wrap {
+    width: 100%;
+  }
+
+  .matcher-wrap {
+    padding: 0;
+    width: 100%
+  }
+
+  .match-btn {
+    text-align: center;
+    margin-top: 15px;
   }
 }

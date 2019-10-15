@@ -36,7 +36,6 @@
         <div class="col-md-8 pl-md-5">
 
           <div class="block-44 d-flex mb-3">
-            <!-- <div class="block-44-image"><img src="images/image_tall_1.jpg" alt="Image placeholder"></div> -->
             <div class="block-44-text">
               <h3 class="block-44-heading"><a>{{showContent[3]}}</a></h3>
               <div class="block-44-meta">{{showContent[4]}}</div>
@@ -45,12 +44,10 @@
           </div>
 
           <p>
-            {{showContent[5]}}<a routerLink="/paychecker" style="color: red">{{showContent[6]}}</a>.
+            {{showContent[5]}}<a routerLink="/paychecker" (click)="jumpToPageTop()" style="color: red">{{showContent[6]}}</a>.
           </p>
           <br />
-          <!--<p><img src="images/big_image_1.jpg" alt="Image placeholder" class="img-fluid"></p>-->
           <div class="block-44 d-flex mb-3">
-            <!-- <div class="block-44-image"><img src="images/image_tall_1.jpg" alt="Image placeholder"></div> -->
             <div class="block-44-text">
               <h3 class="block-44-heading"><a>{{showContent[7]}}</a></h3>
               <div class="block-44-meta">{{showContent[8]}}</div>
@@ -59,7 +56,7 @@
           </div>
 
           <p>
-            {{showContent[9]}}<a routerLink="/related-definition" style="color: red">{{showContent[10]}}</a>.
+            {{showContent[9]}}<a routerLink="/related-definition" style="color: red" (click)="jumpToPageTop()">{{showContent[10]}}</a>.
           </p>
           <p>
             {{showContent[11]}}

@@ -36,4 +36,7 @@ export class StepsComponent implements OnInit {
     }
   }
 
+  jumpToPageTop() {
+    window.scrollTo(0, 0);
+  }
 }

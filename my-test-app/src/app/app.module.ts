@@ -29,20 +29,19 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { TalkToBossComponent } from './talk-to-boss/talk-to-boss.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Alice0Component } from './alice0/alice0.component';
-import { Alice1Component } from './alice1/alice1.component';
-import { Alice2Component } from './alice2/alice2.component';
-import { Alice3Component } from './alice3/alice3.component';
 import { BobComponent } from './bob/bob.component';
 import { DaisyComponent } from './daisy/daisy.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { SkillMatcherComponent } from './skill-matcher/skill-matcher.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
-//import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
-//import { registerLocaleData } from '@angular/common';
-//import en from '@angular/common/locales/en';
+import { NgZorroAntdModule, NZ_ICONS, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
-//registerLocaleData(en);
+registerLocaleData(en);
 
 
 
@@ -64,9 +63,6 @@ import { MatInputModule } from '@angular/material/input';
     SolutionsComponent,
     TalkToBossComponent,
     Alice0Component,
-    Alice1Component,
-    Alice2Component,
-    Alice3Component,
     BobComponent,
     DaisyComponent,
     SkillMatcherComponent
@@ -85,12 +81,14 @@ import { MatInputModule } from '@angular/material/input';
     MatProgressBarModule,
     MatTooltipModule,
     MatTabsModule,
-    //NgZorroAntdModule,
+    NgZorroAntdModule,
     FormsModule,
     MatSliderModule,
-    MatInputModule
+    MatInputModule,
+    NzBreadCrumbModule,
+    NzIconModule
   ],
-  providers: [/*{ provide: NZ_I18N, useValue: en_US }*/],
+  providers: [{ provide: NZ_I18N, useValue: en_US }], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

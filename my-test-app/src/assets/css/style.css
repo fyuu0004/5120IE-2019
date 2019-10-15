@@ -2678,9 +2678,26 @@ block-43 .block-43-icon .icon-wrapper:hover {
   float: left;
 }
 
+.my-breadcrumb {
+  margin: 20px 0;
+  padding: 0 110px;
+}
+
+  .my-breadcrumb a {
+    color: blue;
+    padding: 10px;
+    font-size: 18px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
+  }
+
+  .my-breadcrumb {
+    margin: 7px 0;
+    padding: 0 80px;
   }
 }
 

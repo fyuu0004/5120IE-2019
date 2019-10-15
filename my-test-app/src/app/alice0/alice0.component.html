@@ -11,31 +11,19 @@
         <p class="alice-p">{{showContent[0]}}</p>
         <p class="alice-p">{{showContent[1]}}</p>
         <p class="alice-p">{{showContent[2]}}</p>
-        <p class="alice-p">{{showContent[3]}}</p>
+        <div class="alice-selection">
+          <p class="alice-p">{{showContent[3]}}</p>
+          <button type="button" mat-raised-button class="alice-btn" routerLink="/dod" (click)="jumpToPageTop()">{{showContent[8]}}</button>
+        </div>
+        <div class="alice-selection">
+          <p class="alice-p">{{showContent[9]}}</p>
+          <button type="button" mat-raised-button class="alice-btn" routerLink="/level" (click)="jumpToPageTop()">{{showContent[10]}}</button>
+        </div>
+        <div class="alice-selection">
+          <p class="alice-p">{{showContent[11]}}</p>
+          <button type="button" mat-raised-button class="alice-btn" routerLink="/skill-matcher" (click)="jumpToPageTop()">{{showContent[12]}}</button>
+        </div>
         <p class="alice-p" style="color: red">{{showContent[4]}}</p>
-        <br />
-        <p class="alice-p" style="text-align: center;">
-          <a style="display:inline-block" href="https://www.the19dollar.ml/alice1">
-        <p>
-          {{showContent[5]}}
-        </p>
-        <img src="assets/images/n1.jpg" alt="Image placeholder" />
-        </a>
-        <img src="assets/images/n4.png" alt="Image placeholder" style="display:inline-block" />
-        <a style="display:inline-block" href="https://www.the19dollar.ml/alice2">
-          <p>
-            {{showContent[6]}}
-          </p>
-          <img src="assets/images/n2.jpg" alt="Image placeholder" />
-        </a>
-        <img src="assets/images/n4.png" alt="Image placeholder" style="display:inline-block" />
-        <a style="display:inline-block" href="https://www.the19dollar.ml/alice3">
-          <p>
-            {{showContent[7]}}
-          </p>
-          <img src="assets/images/n3.jpg" alt="Image placeholder" />
-        </a>
-        </p>
       </div>
     </div>
   </div>

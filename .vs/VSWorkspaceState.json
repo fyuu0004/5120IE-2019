@@ -1,6 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\my-test-app",
+    "\\my-test-app\\src",
+    "\\my-test-app\\src\\app",
+    "\\my-test-app\\src\\app\\alice0",
+    "\\my-test-app\\src\\app\\home",
+    "\\my-test-app\\src\\app\\pay-checker",
+    "\\my-test-app\\src\\app\\skill-matcher",
+    "\\my-test-app\\src\\assets"
   ],
+  "SelectedNode": "\\my-test-app\\src\\app\\alice0\\alice0.component.css",
   "PreviewInSolutionExplorer": false
 }

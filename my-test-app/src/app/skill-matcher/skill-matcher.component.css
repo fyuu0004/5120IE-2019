@@ -5,15 +5,28 @@
 }
 
 .matcher-inner-wrap {
-  border: 2px solid;
-  border-bottom-color: black;
-  border-radius: 1px;
+  width: 59%;
+  display: inline-block;
+}
+
+.matcher-side-wrap {
+  width: 39%;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.matcher-side-wrap p {
+  font-size:22px;
+  font-weight:200;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .matcher-input-wrap {
   margin: 10px 0;
   padding: 10px 30px 10px 30px;
-  width:inherit;
   background-color: white;
 }
 
@@ -22,7 +35,15 @@
 }
 
 .matcher-input-wrap label {
-  width: 250px;
+  width: 200px;
+}
+
+.matcher-btn {
+  background-color: #6c5b7b;
+  color: #fff;
+  height: 50px;
+  width: 160px;
+  font-size: 18px;
 }
 
 .mat-add {
@@ -135,6 +156,11 @@
   color: black;
 }
 
+.matcher-match-btn {
+  width: 150px;
+  height: 44px;
+}
+
 .recommendations b {
   font-size: 18px;
   color: black;
@@ -185,12 +211,12 @@
 }
 
 .slider {
-  margin: 10px;
-  width: 350px;
+  margin: 0 10px;
+  width: 250px;
 }
 
 label {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: black;
@@ -221,6 +247,12 @@ label {
   white-space: nowrap;
   position: relative;
   font-size: 20px;
+}
+
+.mat-card {
+  background: #fff;
+  color: rgba(0,0,0,.87);
+  height: 400px;
 }
 
 .result-card {

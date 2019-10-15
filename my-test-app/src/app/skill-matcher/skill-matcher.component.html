@@ -26,6 +26,9 @@
     </div>
     <div class="matcher-q">
       <p>
+        {{showContent[38]}}
+      </p>
+      <p>
         {{showContent[19]}}
       </p>
       <div class="matcher-btn-row">
@@ -36,490 +39,706 @@
   </div>
   <div *ngIf="!standingBy">
     <div *ngIf="experience">
-      <div class="matcher-wrap" *ngIf="!hidden">
+      <div class="matcher-wrap">
         <mat-tab-group mat-stretch-tabs>
           <mat-tab label="{{showContent[0]}}">
             <!--<div class="switcher">
     <button class="switch-matcher" mat-raised-button [color]="'switch-disable'" [disabled]="experience" (click)="experienceSwitch()">{{showContent[0]}}</button>
     <button class="switch-matcher" mat-raised-button [color]="'switch'" [disabled]="!experience" (click)="noExperienceSwitch()">{{showContent[22]}}</button>
   </div>-->
-            <div class="matcher-inner-wrap">
-              <div class="matcher-input-wrap">
-                <form [formGroup]="matcherFormGroupOne">
-                  <h4>{{showContent[1]}}</h4>
-                  <mat-form-field>
-                    <mat-select placeholder="{{showContent[2]}}" formControlName="industryCtrl" required>
-                      <mat-option *ngFor="let industry of industrys" [value]="industry" (click)="getOccupation()">
-                        {{industry}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  <h4>{{showContent[3]}}</h4>
-                  <mat-form-field>
-                    <mat-select placeholder="{{showContent[4]}}" formControlName="occupationCtrl" required>
-                      <mat-option *ngFor="let occupation of occupations" [value]="occupation" (click)="getRegion()">
-                        {{occupation}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  <div>
-                    <button mat-raised-button [color]="'add'" [disabled]="!matcherFormGroupOne.valid" (click)="addOccupation()">{{showContent[5]}}</button>
-                  </div>
-                  <div style="display:inline-block">
-                    <p class="error-message">{{errorMsg}}</p>
-                  </div>
-                  <div class="matcher-add-wrap" *ngIf="selectedOccupation.length > 0">
-                    <ul>
-                      <li *ngFor="let add of selectedOccupation" [value]="add">
-                        <div><b>{{add}}</b><button type="button" class="matcher-remove-occupation" aria-label="Close" (click)="removeOccupation(add)"><span aria-hidden="true">×</span></button></div>
-                      </li>
-                    </ul>
-                  </div>
-                </form>
+            <div *ngIf="!hidden">
+              <div class="matcher-inner-wrap">
+                <div class="matcher-input-wrap">
+                  <form [formGroup]="matcherFormGroupOne">
+                    <h4>{{showContent[1]}}</h4>
+                    <mat-form-field>
+                      <mat-select placeholder="{{showContent[2]}}" formControlName="industryCtrl" required>
+                        <mat-option *ngFor="let industry of industrys" [value]="industry" (click)="getOccupation()">
+                          {{industry}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <h4>{{showContent[3]}}</h4>
+                    <mat-form-field>
+                      <mat-select placeholder="{{showContent[4]}}" formControlName="occupationCtrl" required>
+                        <mat-option *ngFor="let occupation of occupations" [value]="occupation" (click)="getRegion()">
+                          {{occupation}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <div>
+                      <button mat-raised-button [color]="'add'" [disabled]="!matcherFormGroupOne.valid" (click)="addOccupation()">{{showContent[5]}}</button>
+                    </div>
+                    <div style="display:inline-block">
+                      <p class="error-message">{{errorMsg}}</p>
+                    </div>
+                    <div class="matcher-add-wrap" *ngIf="selectedOccupation.length > 0">
+                      <ul>
+                        <li *ngFor="let add of selectedOccupation" [value]="add">
+                          <div><b>{{add}}</b><button type="button" class="matcher-remove-occupation" aria-label="Close" (click)="removeOccupation(add)"><span aria-hidden="true">×</span></button></div>
+                        </li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+                <div class="matcher-input-wrap" *ngIf="added">
+                  <form [formGroup]="matcherFormGroupTwo">
+                    <h4>{{showContent[6]}}</h4>
+                    <mat-form-field>
+                      <mat-select placeholder="{{showContent[7]}}" formControlName="regionCtrl" required>
+                        <mat-option *ngFor="let region of regions" [value]="region" (click)="noOccupation()">
+                          {{region}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <div>
+                      <button mat-raised-button class="matcher-btn" [disabled]="!(selectedOccupation.length>0 && matcherFormGroupTwo.valid)" (click)="bestMatch()">{{showContent[8]}}</button>
+                    </div>
+                  </form>
+                </div>
               </div>
-              <div class="matcher-input-wrap" *ngIf="added">
-                <form [formGroup]="matcherFormGroupTwo">
-                  <h4>{{showContent[6]}}</h4>
-                  <mat-form-field>
-                    <mat-select placeholder="{{showContent[7]}}" formControlName="regionCtrl" required>
-                      <mat-option *ngFor="let region of regions" [value]="region" (click)="noOccupation()">
-                        {{region}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  <div>
-                    <button mat-raised-button [color]="'add'" [disabled]="!(selectedOccupation.length>0 && matcherFormGroupTwo.valid)" (click)="bestMatch()">{{showContent[8]}}</button>
-                  </div>
-                </form>
+              <div class="matcher-side-wrap">
+                <p>
+                  {{showContent[39]}}
+                </p>
+              </div>
+            </div>
+            <div class="recommendation-wrap" *ngIf="hidden">
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[9]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{wpFastfoodOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{wpFastfoodRecom}}</b></p>
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p>
+                          <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{fastfoodVac}}</b>{{showContent[11]}}
+                          <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
+                            <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
+                          </a>
+                        </p>
+
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b>{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[14]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{wpRetailOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{wpRetailRecom}}</b></p>
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p>
+                          <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{retailVac}}</b>{{showContent[11]}}
+                          <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
+                            <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
+                          </a>
+                        </p>
+
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b style="margin: 10px;">{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[15]}}</mat-card-title>
+
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{wpHospitalityOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{wpHospitalityRecom}}</b></p>
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p>
+                          <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{hospitalityVac}}</b>{{showContent[11]}}
+                          <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
+                            <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
+                          </a>
+                        </p>
+
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b style="margin: 10px;">{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="matcher-back">
+                <button class="matcher-back-btn" mat-raised-button [color]="'add'" (click)="matcherBack()">{{showContent[16]}}</button>
               </div>
             </div>
           </mat-tab>
 
           <mat-tab label="{{showContent[22]}}">
-            <div>
-              <h3 style="margin-bottom: 10px">{{showContent[22]}}</h3>
-            </div>
-            <div class="matcher-inner-wrap">
-              <div class="matcher-input-wrap">
-                <div class="form-group" name="sliders">
-                  <h4>{{showContent[36]}}</h4>
-                  <div>
-                    <label>{{showContent[23]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="communicationSkills">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{communicationSkills}}</label>
-                  </div>
+            <div *ngIf="!turnUp">
+              <div class="matcher-inner-wrap">
+                <div class="matcher-input-wrap">
+                  <div class="form-group" name="sliders">
+                    <h4>{{showContent[36]}}</h4>
+                    <div>
+                      <label>{{showContent[23]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="communicationSkills">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{communicationSkills}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[24]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="buildingRelationships">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{buildingRelationships}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[24]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="buildingRelationships">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{buildingRelationships}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[25]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="teamWork">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{teamWork}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[25]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="teamWork">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{teamWork}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[26]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="detailOriented">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{detailOriented}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[26]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="detailOriented">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{detailOriented}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[27]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="planning">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{planning}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[27]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="planning">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{planning}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[28]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="problemSolving">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{problemSolving}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[28]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="problemSolving">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{problemSolving}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[29]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="organisationalSkills">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{organisationalSkills}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[29]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="organisationalSkills">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{organisationalSkills}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[30]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="timeManagement">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{timeManagement}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[30]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="timeManagement">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{timeManagement}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[31]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="projectManagement">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{projectManagement}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[31]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="projectManagement">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{projectManagement}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[32]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="research">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{research}}</label>
-                  </div>
-                  <div>
-                    <button mat-raised-button [color]="'add'" (click)="softMatch()">{{showContent[8]}}</button>
+                    <div>
+                      <label>{{showContent[32]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="research">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{research}}</label>
+                    </div>
+                    <div>
+                      <button class="matcher-btn" mat-raised-button (click)="softMatch()">{{showContent[8]}}</button>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <div class="matcher-side-wrap">
+                <p>
+                  {{showContent[40]}}
+                </p>
+                <p>
+                  {{showContent[41]}}
+                </p>
+              </div>
+            </div>
+            <div class="recommendation-wrap" *ngIf="turnUp" id="npResult">
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[9]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{npFastfoodOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{npFastfoodRecom}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[14]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{npRetailOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{npRetailRecom}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[15]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{npHospitalityOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{npHospitalityRecom}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+                <!--<h4>{{showContent[15]}}</h4>
+  <p>{{showContent[34]}}<b>{{hospitalityRecom}}</b>{{showContent[35]}}</p>
+  <p>{{showContent[13]}}<b>{{hospitalityOccupation}}</b></p>-->
+              </div>
+              <div class="matcher-back">
+                <button class="matcher-back-btn" mat-raised-button [color]="'add'" (click)="softBack()">{{showContent[16]}}</button>
               </div>
             </div>
           </mat-tab>
         </mat-tab-group>
-      </div>
-
-      <div class="recommendation-wrap" *ngIf="hidden">
-        <div class="recommendations">
-          <mat-card>
-            <mat-card-title style="text-align: center;">{{showContent[9]}}</mat-card-title>
-            <mat-card-content>
-              <div class="result-card">
-                <div>
-                  <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{fastfoodOccupation}}</b></p>
-                </div>
-                <div>
-                  <p>{{showContent[10]}}<b>{{fastfoodRecom}}</b></p>
-                </div>
-              </div>
-              <div class="result-card">
-                <div>
-                  <p>
-                    <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{fastfoodVac}}</b>{{showContent[11]}}
-                    <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
-                      <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
-                    </a>
-                  </p>
-
-                </div>
-              </div>
-              <div class="result-card">
-                <div>
-                  <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b>{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
-                </div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="recommendations">
-          <mat-card>
-            <mat-card-title style="text-align: center;">{{showContent[14]}}</mat-card-title>
-            <mat-card-content>
-              <div class="result-card">
-                <div>
-                  <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{retailOccupation}}</b></p>
-                </div>
-                <div>
-                  <p>{{showContent[10]}}<b>{{retailRecom}}</b></p>
-                </div>
-              </div>
-              <div class="result-card">
-                <div>
-                  <p>
-                    <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{retailVac}}</b>{{showContent[11]}}
-                    <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
-                      <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
-                    </a>
-                  </p>
-
-                </div>
-              </div>
-              <div class="result-card">
-                <div>
-                  <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b style="margin: 10px;">{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
-                </div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="recommendations">
-          <mat-card>
-            <mat-card-title style="text-align: center;">{{showContent[15]}}</mat-card-title>
-            
-            <mat-card-content>
-              <div class="result-card">
-                <div>
-                  <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{hospitalityOccupation}}</b></p>
-                </div>
-                <div>
-                  <p>{{showContent[10]}}<b>{{hospitalityRecom}}</b></p>
-                </div>
-              </div>
-              <div class="result-card">
-                <div>
-                  <p>
-                    <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{hospitalityVac}}</b>{{showContent[11]}}
-                    <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
-                      <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
-                    </a>
-                  </p>
-
-                </div>
-              </div>
-              <div class="result-card">
-                <div>
-                  <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b style="margin: 10px;">{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
-                </div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="matcher-back">
-          <button class="matcher-back-btn" mat-raised-button [color]="'add'" (click)="matcherBack()">{{showContent[16]}}</button>
-        </div>
       </div>
     </div>
+
     <div *ngIf="!experience">
-      <div class="matcher-wrap" *ngIf="!turnUp">
+      <div class="matcher-wrap">
         <mat-tab-group mat-stretch-tabs [selectedIndex]="1">
           <mat-tab label="{{showContent[0]}}" style="font-size: 20px;">
-            <div class="matcher-inner-wrap">
-              <div class="matcher-input-wrap">
-                <form [formGroup]="matcherFormGroupOne">
-                  <h4>{{showContent[1]}}</h4>
-                  <mat-form-field>
-                    <mat-select placeholder="{{showContent[2]}}" formControlName="industryCtrl" required>
-                      <mat-option *ngFor="let industry of industrys" [value]="industry" (click)="getOccupation()">
-                        {{industry}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  <h4>{{showContent[3]}}</h4>
-                  <mat-form-field>
-                    <mat-select placeholder="{{showContent[4]}}" formControlName="occupationCtrl" required>
-                      <mat-option *ngFor="let occupation of occupations" [value]="occupation" (click)="getRegion()">
-                        {{occupation}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  <div>
-                    <button mat-raised-button [color]="'add'" [disabled]="!matcherFormGroupOne.valid" (click)="addOccupation()">{{showContent[5]}}</button>
-                  </div>
-                  <div style="display:inline-block">
-                    <p class="error-message">{{errorMsg}}</p>
-                  </div>
-                  <div class="matcher-add-wrap" *ngIf="selectedOccupation.length > 0">
-                    <ul>
-                      <li *ngFor="let add of selectedOccupation" [value]="add">
-                        <div><b>{{add}}</b><button type="button" class="matcher-remove-occupation" aria-label="Close" (click)="removeOccupation(add)"><span aria-hidden="true">×</span></button></div>
-                      </li>
-                    </ul>
-                  </div>
-                </form>
+            <div *ngIf="!hidden">
+              <div class="matcher-inner-wrap">
+                <div class="matcher-input-wrap">
+                  <form [formGroup]="matcherFormGroupOne">
+                    <h4>{{showContent[1]}}</h4>
+                    <mat-form-field>
+                      <mat-select placeholder="{{showContent[2]}}" formControlName="industryCtrl" required>
+                        <mat-option *ngFor="let industry of industrys" [value]="industry" (click)="getOccupation()">
+                          {{industry}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <h4>{{showContent[3]}}</h4>
+                    <mat-form-field>
+                      <mat-select placeholder="{{showContent[4]}}" formControlName="occupationCtrl" required>
+                        <mat-option *ngFor="let occupation of occupations" [value]="occupation" (click)="getRegion()">
+                          {{occupation}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <div>
+                      <button mat-raised-button [color]="'add'" [disabled]="!matcherFormGroupOne.valid" (click)="addOccupation()">{{showContent[5]}}</button>
+                    </div>
+                    <div style="display:inline-block">
+                      <p class="error-message">{{errorMsg}}</p>
+                    </div>
+                    <div class="matcher-add-wrap" *ngIf="selectedOccupation.length > 0">
+                      <ul>
+                        <li *ngFor="let add of selectedOccupation" [value]="add">
+                          <div><b>{{add}}</b><button type="button" class="matcher-remove-occupation" aria-label="Close" (click)="removeOccupation(add)"><span aria-hidden="true">×</span></button></div>
+                        </li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+                <div class="matcher-input-wrap" *ngIf="added">
+                  <form [formGroup]="matcherFormGroupTwo">
+                    <h4>{{showContent[6]}}</h4>
+                    <mat-form-field>
+                      <mat-select placeholder="{{showContent[7]}}" formControlName="regionCtrl" required>
+                        <mat-option *ngFor="let region of regions" [value]="region" (click)="noOccupation()">
+                          {{region}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <div>
+                      <button class="matcher-btn" mat-raised-button [disabled]="!(selectedOccupation.length>0 && matcherFormGroupTwo.valid)" (click)="bestMatch()">{{showContent[8]}}</button>
+                    </div>
+                  </form>
+                </div>
               </div>
-              <div class="matcher-input-wrap" *ngIf="added">
-                <form [formGroup]="matcherFormGroupTwo">
-                  <h4>{{showContent[6]}}</h4>
-                  <mat-form-field>
-                    <mat-select placeholder="{{showContent[7]}}" formControlName="regionCtrl" required>
-                      <mat-option *ngFor="let region of regions" [value]="region" (click)="noOccupation()">
-                        {{region}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  <div>
-                    <button mat-raised-button [color]="'add'" [disabled]="!(selectedOccupation.length>0 && matcherFormGroupTwo.valid)" (click)="bestMatch()">{{showContent[8]}}</button>
-                  </div>
-                </form>
+              <div class="matcher-side-wrap">
+                <p>
+                  {{showContent[39]}}
+                </p>
+              </div>
+            </div>
+            <div class="recommendation-wrap" *ngIf="hidden">
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[9]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{fastfoodOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{fastfoodRecom}}</b></p>
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p>
+                          <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{fastfoodVac}}</b>{{showContent[11]}}
+                          <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
+                            <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
+                          </a>
+                        </p>
+
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b>{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[14]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{retailOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{retailRecom}}</b></p>
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p>
+                          <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{retailVac}}</b>{{showContent[11]}}
+                          <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
+                            <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
+                          </a>
+                        </p>
+
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b style="margin: 10px;">{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[15]}}</mat-card-title>
+
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{hospitalityOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{hospitalityRecom}}</b></p>
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p>
+                          <img src="assets/images/vacancy.ico" /><b style="margin: 10px;">{{hospitalityVac}}</b>{{showContent[11]}}
+                          <a matTooltip="{{showContent[13]}}" matTooltipClass="notice" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over">
+                            <span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span>
+                          </a>
+                        </p>
+
+                      </div>
+                    </div>
+                    <div class="result-card">
+                      <div>
+                        <p><img style="margin-right: 10px;" src="assets/images/location.ico" />{{showContent[12]}}<b style="margin: 10px;">{{matcherFormGroupTwo.value.regionCtrl}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="matcher-back">
+                <button class="matcher-back-btn" mat-raised-button [color]="'add'" (click)="matcherBack()">{{showContent[16]}}</button>
               </div>
             </div>
           </mat-tab>
 
           <mat-tab label="{{showContent[22]}}">
-            <div class="matcher-inner-wrap">
-              <div class="matcher-input-wrap">
-                <div class="form-group" name="sliders">
-                  <h4>{{showContent[36]}}</h4>
-                  <div>
-                    <label>{{showContent[23]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="communicationSkills">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{communicationSkills}}</label>
-                  </div>
+            <div *ngIf="!turnUp">
+              <div class="matcher-inner-wrap">
+                <div class="matcher-input-wrap">
+                  <div class="form-group" name="sliders">
+                    <h4>{{showContent[36]}}</h4>
+                    <div>
+                      <label>{{showContent[23]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="communicationSkills">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{communicationSkills}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[24]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="buildingRelationships">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{buildingRelationships}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[24]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="buildingRelationships">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{buildingRelationships}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[25]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="teamWork">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{teamWork}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[25]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="teamWork">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{teamWork}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[26]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="detailOriented">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{detailOriented}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[26]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="detailOriented">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{detailOriented}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[27]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="planning">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{planning}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[27]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="planning">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{planning}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[28]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="problemSolving">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{problemSolving}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[28]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="problemSolving">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{problemSolving}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[29]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="organisationalSkills">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{organisationalSkills}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[29]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="organisationalSkills">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{organisationalSkills}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[30]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="timeManagement">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{timeManagement}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[30]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="timeManagement">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{timeManagement}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[31]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="projectManagement">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{projectManagement}}</label>
-                  </div>
+                    <div>
+                      <label>{{showContent[31]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="projectManagement">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{projectManagement}}</label>
+                    </div>
 
-                  <div>
-                    <label>{{showContent[32]}}</label>
-                    <mat-slider class="slider"
-                                [min]="0"
-                                [max]="10"
-                                [step]="1"
-                                [(ngModel)]="research">
-                    </mat-slider>
-                    <label>{{showContent[37]}}{{research}}</label>
-                  </div>
-                  <div>
-                    <button mat-raised-button [color]="'add'" (click)="softMatch()" href="../skill-matcher#npResult">{{showContent[8]}}</button>
+                    <div>
+                      <label>{{showContent[32]}}</label>
+                      <mat-slider class="slider"
+                                  [min]="0"
+                                  [max]="10"
+                                  [step]="1"
+                                  [(ngModel)]="research">
+                      </mat-slider>
+                      <label>{{showContent[37]}}{{research}}</label>
+                    </div>
+                    <div>
+                      <button mat-raised-button class="matcher-btn" (click)="softMatch()">{{showContent[8]}}</button>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <div class="matcher-side-wrap">
+                <p>
+                  {{showContent[40]}}
+                </p>
+                <p>
+                  {{showContent[41]}}
+                </p>
+              </div>
+            </div>
+            <div class="recommendation-wrap" *ngIf="turnUp" id="npResult">
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[9]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{npFastfoodOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{npFastfoodRecom}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[14]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{npRetailOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{npRetailRecom}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="recommendations">
+                <mat-card>
+                  <mat-card-title style="text-align: center;">{{showContent[15]}}</mat-card-title>
+                  <mat-card-content>
+                    <div class="result-card">
+                      <div>
+                        <p><img src="assets/images/occupation.ico" /><b style="margin: 10px;">{{npHospitalityOccupation}}</b></p>
+                      </div>
+                      <div>
+                        <p>{{showContent[10]}}<b>{{npHospitalityRecom}}</b></p>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+                <!--<h4>{{showContent[15]}}</h4>
+      <p>{{showContent[34]}}<b>{{hospitalityRecom}}</b>{{showContent[35]}}</p>
+      <p>{{showContent[13]}}<b>{{hospitalityOccupation}}</b></p>-->
+              </div>
+              <div class="matcher-back">
+                <button class="matcher-back-btn" mat-raised-button [color]="'add'" (click)="softBack()">{{showContent[16]}}</button>
               </div>
             </div>
           </mat-tab>
         </mat-tab-group>
-      </div>
-      <div class="recommendation-wrap" *ngIf="turnUp" id="npResult">
-        <div class="recommendations">
-          <h4>{{showContent[9]}}</h4>
-          <p>{{showContent[34]}}<b>{{fastfoodRecom}}</b>{{showContent[35]}}</p>
-          <p>{{showContent[13]}}<b>{{fastfoodOccupation}}</b></p>
-        </div>
-        <div class="recommendations">
-          <h4>{{showContent[14]}}</h4>
-          <p>{{showContent[34]}}<b>{{retailRecom}}</b>{{showContent[35]}}</p>
-          <p>{{showContent[13]}}<b>{{retailOccupation}}</b></p>
-        </div>
-        <div class="recommendations">
-          <h4>{{showContent[15]}}</h4>
-          <p>{{showContent[34]}}<b>{{hospitalityRecom}}</b>{{showContent[35]}}</p>
-          <p>{{showContent[13]}}<b>{{hospitalityOccupation}}</b></p>
-        </div>
-        <div class="matcher-back">
-          <button class="matcher-back-btn" mat-raised-button [color]="'add'" (click)="softBack()">{{showContent[16]}}</button>
-        </div>
       </div>
     </div>
   </div>

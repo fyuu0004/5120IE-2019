@@ -1,64 +1,63 @@
 <div class="wrap">
-    <div class="block-45">
-      <div class="container">
-        <div class="row">
-          <!--
-                    <div class="col-md-6">
-                      <ul class="block-45-list">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Pay Checker</a></li>
-                        <li><a href="#">About Us</a></li>
-                      </ul>
-                    </div>
-          -->
+  <div class="block-45">
+    <div class="container">
+      <div class="row">
+        <!--
+                  <div class="col-md-6">
+                    <ul class="block-45-list">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Pay Checker</a></li>
+                      <li><a href="#">About Us</a></li>
+                    </ul>
+                  </div>
+        -->
 
-        </div>
       </div>
     </div>
-    <header role="banner">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand absolute" routerLink="/home">
-            {{showContent[0]}}<img src="assets/images/i2teamlogo.jpeg" alt="web-logo" height="70" width="70" />
-
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/home" routerLinkActive="menu-highlight-page">{{showContent[1]}}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/paychecker" routerLinkActive="menu-highlight-page">{{showContent[2]}}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/visualization" routerLinkActive="menu-highlight-page">{{showContent[11]}}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/skill-matcher" routerLinkActive="menu-highlight-page">{{showContent[13]}}</a>
-              </li>
-              <li class="nav-item dropdown" [ngClass]="{'show': informationNeedDropDown}" (mouseenter)="informationEnter($event)" (mouseleave)="informationLeave($event)">
-                <a class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" [attr.aria-expanded]="informationNeedDropDown">{{showContent[3]}}</a>
-                <div class="dropdown-menu" [ngClass]="{'show': informationNeedDropDown}" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" routerLink="/related-definition" routerLinkActive="menu-highlight-page">{{showContent[4]}}</a>
-                  <a class="dropdown-item" routerLink="/steps" routerLinkActive="menu-highlight-page">{{showContent[5]}}</a>
-                  <a class="dropdown-item" routerLink="/contact-welfare" routerLinkActive="menu-highlight-page">{{showContent[6]}}</a>
-                  <a class="dropdown-item" routerLink="/video" routerLinkActive="menu-highlight-page">{{showContent[7]}}</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" (click)="onLanguageChange()" style="cursor:pointer">{{showContent[9]}}</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
   </div>
-<router-outlet></router-outlet>
-<footer class="site-footer">
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand absolute" routerLink="/home">
+          {{showContent[0]}}<img src="assets/images/i2teamlogo.jpeg" alt="web-logo" height="70" width="70" />
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home" routerLinkActive="menu-highlight-page">{{showContent[1]}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/paychecker" routerLinkActive="menu-highlight-page">{{showContent[2]}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/visualization" routerLinkActive="menu-highlight-page">{{showContent[11]}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/skill-matcher" routerLinkActive="menu-highlight-page">{{showContent[13]}}</a>
+            </li>
+            <li class="nav-item dropdown" [ngClass]="{'show': informationNeedDropDown}" (mouseenter)="informationEnter($event)" (mouseleave)="informationLeave($event)">
+              <a class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" [attr.aria-expanded]="informationNeedDropDown">{{showContent[3]}}</a>
+              <div class="dropdown-menu" [ngClass]="{'show': informationNeedDropDown}" aria-labelledby="dropdown05">
+                <a class="dropdown-item" routerLink="/related-definition" routerLinkActive="menu-highlight-page">{{showContent[4]}}</a>
+                <a class="dropdown-item" routerLink="/steps" routerLinkActive="menu-highlight-page">{{showContent[5]}}</a>
+                <a class="dropdown-item" routerLink="/contact-welfare" routerLinkActive="menu-highlight-page">{{showContent[6]}}</a>
+                <a class="dropdown-item" routerLink="/video" routerLinkActive="menu-highlight-page">{{showContent[7]}}</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="onLanguageChange()" style="cursor:pointer">{{showContent[9]}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <router-outlet></router-outlet>
+  <footer class="site-footer">
     <div class="row pt-5">
       <div class="col-md-12 text-center copyright">
         <div style="padding: 10px 10px 10px 10px;">
@@ -81,7 +80,9 @@
     <p style="text-align: center; color: white;">
       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       Copyright &copy;
-      <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+      <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
     </p>
-</footer>
+  </footer>
+</div>
+

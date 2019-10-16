@@ -2436,8 +2436,9 @@ block-43 .block-43-icon .icon-wrapper:hover {
 .block-43 .block-43-heading {
   font-size: 18px;
   font-weight: normal;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-top: 10px;
+  height: 120px;
 }
 
 .img-shadow, .block-38 .block-38-header img {

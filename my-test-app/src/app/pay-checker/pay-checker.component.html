@@ -14,12 +14,12 @@
     </nz-breadcrumb>
   </div>
   <div class="checker-wrap" layout="row">
-    <div style="margin: 15px 0 15px 0; text-align:center;">
+    <div style="margin: 15px 0; text-align:center;">
       <p class="note"><b>{{showContent[14]}}</b></p>
       <p class="note"><b>{{showContent[17]}}</b></p>
     </div>
     <div class="checker-cal-wrap" style="height: 700px; margin: 15px 15px 0 25px; padding:10px 25px 0 25px ;" [ngSwitch]="true">
-      <div style="margin: 5px 5px 5px 5px; border-bottom-color: black; border: 3px 3px 3px 3px">
+      <div style="margin: 5px; border-bottom-color: black; border: 3px">
         <mat-vertical-stepper linear #stepper>
           <mat-step [stepControl]="firstFormGroup">
             <form [formGroup]="firstFormGroup">

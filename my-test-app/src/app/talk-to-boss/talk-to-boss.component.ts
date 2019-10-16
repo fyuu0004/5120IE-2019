@@ -34,4 +34,7 @@ export class TalkToBossComponent implements OnInit {
     }
   }
 
+  jumpToPageTop() {
+    window.scrollTo(0, 0);
+  }
 }

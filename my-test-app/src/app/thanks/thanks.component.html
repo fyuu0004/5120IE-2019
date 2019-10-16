@@ -2,14 +2,22 @@
   <title>Thanks - 19th dollar</title>
 </head>
 <div class="wrap">
-  <div style="margin: 100px 150px 50px 150px; padding: 10px 10px 10px 10px; text-align: center">
+  <div class="block-45"></div>
+  <div class="womeidaitao">
+    <img src="assets/images/thanks.gif" alt="Image placeholder">
+  </div>
+  <div class="thanks">
     <p style="font-size:28px">{{showContent[0]}}</p>
     <p style="font-size:20px">{{showContent[1]}}</p>
   </div>
-  <div style="margin: 30px 150px 100px 200px; padding: 10px 10px 10px 10px; text-align: center">
-    <div class="button-row" style="width: 50%; margin:0 auto">
-      <button mat-raised-button color="primary" routerLink="/visualization">{{showContent[2]}}</button>
-      <button mat-raised-button color="primary" routerLink="/level">{{showContent[3]}}</button>
+  <div class="button-wrap">
+    <div class="button-row">
+      <div class="inner-button-wrap">
+        <button mat-raised-button type="button" class="thanks-button-left" routerLink="/visualization">{{showContent[2]}}</button>
+      </div>
+      <div class="inner-button-wrap">
+        <button mat-raised-button type="button" class="thanks-button-right" routerLink="/skill-matcher">{{showContent[3]}}</button>
+      </div>
     </div>
   </div>
 </div>

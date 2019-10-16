@@ -60,12 +60,12 @@
           <div style="text-align:left; padding: 0 48px 0 15px">
             <ul>
               <li>
-                <a style="font-size: 16px" routerLink="/dod" routerLinkActive="dod-nav-side">
+                <a style="font-size: 16px" routerLink="/dod" routerLinkActive="dod-nav-side" (click)="jumpToPageTop()">
                   {{showContent[11]}}
                 </a>
               </li>
               <li>
-                <a style="font-size: 16px" routerLink="/level" routerLinkActive="dod-nav-side">
+                <a style="font-size: 16px" routerLink="/level" routerLinkActive="dod-nav-side" (click)="jumpToPageTop()">
                   {{showContent[12]}}
                 </a>
               </li>
@@ -74,10 +74,8 @@
                   {{showContent[13]}}
                 </a>
               </li>
-              <li style="list-style: none">
-                <a style="font-size: 22px;" routerLink="/related-definition">
-                  <button mat-raised-button>{{showContent[14]}}</button>
-                </a>
+              <li style="list-style: none; margin-top: 20px;">
+                <button mat-raised-button style="font-size: 18px;" routerLink="/related-definition" type="button" (click)="jumpToPageTop()">{{showContent[14]}}</button>
               </li>
             </ul>
 

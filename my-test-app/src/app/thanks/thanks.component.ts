@@ -8,8 +8,8 @@ import { LanguageService } from '../language.service';
 })
 export class ThanksComponent implements OnInit {
 
-  englishContent: string[] = ["Thank you!", "Do you want to explore more?", "See visualisations", "See work levels"];
-  chineseContent: string[] = ["谢谢你！", "你想继续探索吗？", "看看视图", "看看工资等级"];
+  englishContent: string[] = ["Thank you for using our website!", "Wish you get fair treated.", "See visualisations", "See skill-matcher"];
+  chineseContent: string[] = ["谢谢你！", "希望你能被公平对待。", "看看视图", "看看技能匹配"];
   showContent: string[] = [];
 
   constructor(private languageService: LanguageService) { }

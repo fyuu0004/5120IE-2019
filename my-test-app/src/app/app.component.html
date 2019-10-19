@@ -20,7 +20,6 @@
       <div class="container">
         <a class="navbar-brand absolute" routerLink="/home">
           {{showContent[0]}}<img src="assets/images/i2teamlogo.jpeg" alt="web-logo" height="70" width="70" />
-
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -60,19 +59,19 @@
   <footer class="site-footer">
     <div class="row pt-5">
       <div class="col-md-12 text-center copyright">
-        <div style="padding: 10px 10px 10px 10px;">
+        <div style="padding: 10px;">
           <div class="column">
             <h2 style="color: white">{{showContent[3]}}</h2>
-            <p><a href="https://www.the19dollar.ml/related-definition">{{showContent[4]}}</a></p>
-            <p><a href="https://www.the19dollar.ml/steps">{{showContent[5]}}</a></p>
-            <p><a href="https://www.the19dollar.ml/contact-welfare">{{showContent[6]}}</a></p>
-            <p><a href="https://www.the19dollar.ml/video">{{showContent[7]}}</a></p>
+            <p><a routerLink="/related-definition" (click)="jumpToPageTop()">{{showContent[4]}}</a></p>
+            <p><a routerLink="/steps" (click)="jumpToPageTop()">{{showContent[5]}}</a></p>
+            <p><a routerLink="/contact-welfare" (click)="jumpToPageTop()">{{showContent[6]}}</a></p>
+            <p><a routerLink="/video" (click)="jumpToPageTop()">{{showContent[7]}}</a></p>
           </div>
           <div class="column">
             <h2 style="color: white">{{showContent[12]}}</h2>
-            <p><a href="https://www.the19dollar.ml/paychecker">{{showContent[2]}}</a></p>
-            <p><a href="https://www.the19dollar.ml/visualization">{{showContent[11]}}</a></p>
-            <p><a href="https://www.the19dollar.ml/skill-matcher">{{showContent[13]}}</a></p>
+            <p><a routerLink="/paychecker" (click)="jumpToPageTop()">{{showContent[2]}}</a></p>
+            <p><a routerLink="/visualization" (click)="jumpToPageTop()">{{showContent[11]}}</a></p>
+            <p><a routerLink="/skill-matcher" (click)="jumpToPageTop()">{{showContent[13]}}</a></p>
           </div>
         </div>
       </div>

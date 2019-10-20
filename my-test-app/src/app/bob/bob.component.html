@@ -2,6 +2,7 @@
   <title>Bob - 19th dollar</title>
 </head>
 <div class="wrap">
+  <div class="block-45"></div>
   <div class="bob-wrap">
     <div class="bob-image-wrap">
       <img src="assets/images/8296838.jpg" alt="Image placeholder"/>
@@ -14,7 +15,7 @@
       <p class="bob-p">{{showContent[5]}}</p>
       <p class="bob-p" style="color: red">{{showContent[6]}}</p>
       <p class="bob-p" style="text-align: center">
-        <a href="https://www.the19dollar.ml/paychecker"><button mat-raised-button [color]="'submit'" style="width: 260px; height:100px; font-size: 24px; border-radius: 8px;">{{showContent[1]}}</button></a>
+        <button type="button" mat-raised-button class="bob-btn" routerLink="/paychecker" (click)="jumpToPageTop()">{{showContent[1]}}</button>
       </p>
     </div>
   </div>

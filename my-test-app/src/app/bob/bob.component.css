@@ -5,16 +5,12 @@
   width: 100%;
 }
 
-.bob-button {
-  padding: 10px;
-  text-align: center;
-  width: 100%;
-  height: 150px;
-}
-
-.mat-submit {
-  background-color: green;
-  color: #fff;
+.bob-btn {
+  background-color: #6c5b7b;
+  color: white;
+  font-size: 20px;
+  height: 50px;
+  margin: 10px;
 }
 
 .bob-p {
@@ -32,4 +28,20 @@
   width: 60%;
   vertical-align: top;
   padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .bob-image-wrap {
+    display: none;
+  }
+
+  .bob-text-wrap {
+    width: 100%
+  }
+
+  .bob-wrap {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
 }

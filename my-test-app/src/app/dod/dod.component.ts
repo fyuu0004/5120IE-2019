@@ -40,4 +40,7 @@ export class DodComponent implements OnInit {
     }
   }
 
+  jumpToPageTop() {
+    window.scrollTo(0, 0);
+  }
 }

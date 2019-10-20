@@ -2,6 +2,17 @@
   <title>Visualisation - 19th dollar</title>
 </head>
 <div class="wrap" [ngSwitch]="visualisationNo">
+  <div class="block-45"></div>
+  <div class="my-breadcrumb">
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>
+        <a routerLink="/home">{{showContent[4]}}</a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <a>{{showContent[5]}}</a>
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </div>
   <div *ngSwitchCase="1">
     <div class="button-wrap">
       <div>

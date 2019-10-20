@@ -2,13 +2,24 @@
   <title>Pay checker - 19th dollar</title>
 </head>
 <div class="wrap">
+  <div class="block-45"></div>
+  <div class="my-breadcrumb">
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>
+        <a routerLink="/home">{{showContent[30]}}</a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <a>{{showContent[0]}}</a>
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </div>
   <div class="checker-wrap" layout="row">
-    <div style="margin: 15px 0 15px 0; text-align:center;">
+    <div style="margin: 15px 0; text-align:center;">
       <p class="note"><b>{{showContent[14]}}</b></p>
       <p class="note"><b>{{showContent[17]}}</b></p>
     </div>
-    <div class="checker-cal-wrap" style="height: 700px; margin: 15px 15px 0 25px; padding:10px 25px 0 25px ;" [ngSwitch]="true">
-      <div style="margin: 5px 5px 5px 5px; border-bottom-color: black; border: 3px 3px 3px 3px">
+    <div class="checker-cal-wrap">
+      <div style="margin: 5px; border-bottom-color: black; border: 3px">
         <mat-vertical-stepper linear #stepper>
           <mat-step [stepControl]="firstFormGroup">
             <form [formGroup]="firstFormGroup">
@@ -59,40 +70,36 @@
                 </mat-form-field><p matTooltip="{{showContent[25]}}" matTooltipClass="tooltip-red" matTooltipPosition="right" aria-label="Button that displays a tooltip when focused or hovered over" style="color: red; width: 30px; height: 56.56px; display:inline-block"><span><img src="assets/images/help.png" style="width:25px;height:25px;" /></span></p>
               </div>
               <div class="button-row">
-                <button mat-raised-button color="primary" matStepperPrevious>{{showContent[19]}}</button>
-                <button mat-raised-button [color]="'submit'" (click)="submit()">{{showContent[9]}}</button>
+                <button mat-raised-button color="primary" matStepperPrevious style="margin:5px 20px">{{showContent[19]}}</button>
+                <button mat-raised-button [color]="'submit'" (click)="submit()" style="margin:5px 20px">{{showContent[9]}}</button>
               </div>
             </form>
           </mat-step>
         </mat-vertical-stepper>
-        
+
       </div>
     </div>
-    <div class="checker-res-wrap" style="height: 650px; margin: 15px 25px 0 15px; font-size: 20px; padding:10px 25px 0 25px;" *ngIf="turnUp">
-      <div style="margin: 5px 5px 5px 5px; border-bottom-color: black; border: 3px 3px 3px 3px">
-        <div>
-          <h4><b>{{showContent[15]}}</b></h4>
-        </div>
-        <div>
-          <div>
-            <p><b>{{showContent[20]}}</b>{{firstFormGroup.value.firstCtrl}}</p>
-            <p><b>{{showContent[21]}}</b>{{secondFormGroup.value.age}}</p>
-            <p><b>{{showContent[22]}}</b>{{secondFormGroup.value.worktype}}</p>
-            <p><b>{{showContent[23]}}</b>{{secondFormGroup.value.level}}</p>
-          </div>
-          <br />
-          <p><b>{{showContent[11]}}</b></p>
-          <p><b>{{showContent[24]}}</b>{{hourlyPayRate}}</p>
-          <p><b>{{showContent[12]}}</b>{{saturday}}</p>
-          <p><b>{{showContent[13]}}</b>{{sunday}}</p>
-          <br />
-          <p>{{showContent[27]}}</p>
-          <div class="button-row">
-            <button mat-raised-button color="warn" routerLink="/solutions">{{showContent[28]}}</button>
-            <button mat-raised-button [color]="'submit'" routerLink="/thanks">{{showContent[29]}}</button>
-          </div>
-          <!--<button mat-raised-button color="primary" (click)="resetButton(); stepper.reset()">Reset</button>-->
-        </div>
+    <div class="checker-res-wrap" *ngIf="turnUp">
+      <div class="checker-res-info-wrap">
+        <h4><b>{{showContent[15]}}</b></h4>
+        <p>{{showContent[20]}}<b>{{firstFormGroup.value.firstCtrl}}</b></p>
+        <p>{{showContent[21]}}<b>{{secondFormGroup.value.age}}</b></p>
+        <p>{{showContent[22]}}<b>{{secondFormGroup.value.worktype}}</b></p>
+        <p>{{showContent[23]}}<b>{{secondFormGroup.value.level}}</b></p>
+      </div>
+
+      <div class="checker-res-info-wrap">
+        <h4><b>{{showContent[11]}}</b></h4>
+        <p>{{showContent[24]}}<b>{{hourlyPayRate}}</b></p>
+        <p>{{showContent[12]}}<b>{{saturday}}</b></p>
+        <p>{{showContent[13]}}<b>{{sunday}}</b></p>
+      </div>
+    </div>
+    <div class="res-button-row" *ngIf="turnUp">
+      <h2>{{showContent[27]}}</h2>
+      <div class="res-btn-row-inner">
+        <button mat-raised-button style="background-color: red;" routerLink="/thanks" (click)="jumpToPageTop()">{{showContent[29]}}</button>
+        <button mat-raised-button style="background-color: forestgreen" routerLink="/solutions" (click)="jumpToPageTop()">{{showContent[28]}}</button>
       </div>
     </div>
   </div>

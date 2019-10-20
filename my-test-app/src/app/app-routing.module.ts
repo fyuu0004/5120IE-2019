@@ -15,9 +15,6 @@ import { ThanksComponent } from './thanks/thanks.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { TalkToBossComponent } from './talk-to-boss/talk-to-boss.component';
 import { Alice0Component } from './alice0/alice0.component';
-import { Alice1Component } from './alice1/alice1.component';
-import { Alice2Component } from './alice2/alice2.component';
-import { Alice3Component } from './alice3/alice3.component';
 import { BobComponent } from './bob/bob.component';
 import { DaisyComponent } from './daisy/daisy.component';
 import { SkillMatcherComponent } from './skill-matcher/skill-matcher.component';
@@ -31,11 +28,17 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {
+      breadcrumb: 'Home'
+    }
   },
   {
     path: 'paychecker',
-    component: PayCheckerComponent
+    component: PayCheckerComponent,
+    data: {
+      breadcrumb: 'Pay-Checker'
+    },
   },
   {
     path: 'related-definition',
@@ -84,18 +87,6 @@ const routes: Routes = [
   {
     path: 'alice0',
     component: Alice0Component
-  },
-  {
-    path: 'alice1',
-    component: Alice1Component
-  },
-  {
-    path: 'alice2',
-    component: Alice2Component
-  },
-  {
-    path: 'alice3',
-    component: Alice3Component
   },
   {
     path: 'bob',

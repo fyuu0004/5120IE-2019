@@ -1,6 +1,7 @@
 .note {
   font-size: 20px;
   font-family: Arial;
+  padding: 5px;
 }
 
 .mat-submit {
@@ -8,32 +9,70 @@
   color: #fff;
 }
 
+.res-button-row {
+  width: 100%;
+  padding: 10px 100px;
+  text-align: center;
+}
+
+.res-btn-row-inner {
+  text-align: center;
+  display: inline;
+}
+
+  .res-btn-row-inner button {
+    height: 70px;
+    width: 243px;
+    margin: 20px 40px;
+    font-size: 36px;
+    color: white;
+  }
+
+.inner-button-wrap {
+  display: inline-block;
+  text-align: inherit;
+  width: 50%;
+  padding: 30px 0;
+}
+
 .button-row button {
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 .checker-wrap {
   margin: 0 20px;
-  padding: 30px;
   border-radius: 8px;
   width: 100%;
 }
 
 .checker-cal-wrap {
   display: inline-block;
-  width: 40%;
+  width: 45%;
   vertical-align: top;
+  padding: 25px 40px 0 40px;
 }
 
 .checker-res-wrap {
   display: inline-block;
-  width: 50%;
+  width: 45%;
   vertical-align: top;
+  font-size: 20px;
+  padding: 25px 40px 0 40px;
+}
+
+.checker-res-info-wrap {
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.checker-res-info-wrap b {
+  color: black;
 }
 
 .tooltip-red {
   background-color: #b71c1c;
-  font-size:18px;
+  font-size: 18px;
 }
 
 label {
@@ -44,7 +83,7 @@ p {
   margin: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
 
   .checker-wrap {
     margin: 0 5px;
@@ -62,4 +101,13 @@ p {
     vertical-align: top;
   }
 
+  .res-button-row {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .button-row button {
+    margin: 0 5px;
+  }
 }

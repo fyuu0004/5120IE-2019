@@ -23,19 +23,7 @@
   <section class="site-section bg-light">
     <div class="container">
       <div class="row">
-        <!--
-                  <div class="col-md-4">
-                    <div class="block-36">
-                      <h3 class="block-36-heading">Sermons Links</h3>
-                      <ul>
-                        <li class="active"><a>Daily Sermon</a></li>
-                        <li><a href="sermon.html">Music</a></li>
-                        <li><a href="sermon.html">Audio</a></li>
-                        <li><a href="sermon.html">Video</a></li>
-                      </ul>
-                    </div>
-                  </div>
-        -->
+        
         <div class="col-md-8 pl-md-5">
 
           <div class="block-44 d-flex mb-3">
@@ -47,23 +35,23 @@
             </div>
           </div>
 
-          <p>{{showContent[4]}}</p>
+          <p class="dod-q">{{showContent[4]}}</p>
 
           <p>
             {{showContent[5]}}
           </p>
 
-          <p>{{showContent[6]}}</p>
+          <p class="dod-q">{{showContent[6]}}</p>
 
           <p>
             {{showContent[7]}}
           </p>
-          <p>{{showContent[8]}}</p>
+          <p class="dod-q">{{showContent[8]}}</p>
 
           <p>
             {{showContent[9]}}
           </p>
-          <p>{{showContent[10]}}</p>
+          <p class="dod-q">{{showContent[10]}}</p>
 
           <p>
             {{showContent[11]}}
@@ -94,19 +82,17 @@
                 </a>
               </li>
               <li>
-                <a style="font-size: 16px" routerLink="/level" routerLinkActive="dod-nav-side">
+                <a style="font-size: 16px" routerLink="/level" routerLinkActive="dod-nav-side" (click)="jumpToPageTop()">
                   {{showContent[16]}}
                 </a>
               </li>
               <li>
-                <a style="font-size: 16px" routerLink="/talk-to-boss" routerLinkActive="dod-nav-side">
+                <a style="font-size: 16px" routerLink="/talk-to-boss" routerLinkActive="dod-nav-side" (click)="jumpToPageTop()">
                   {{showContent[17]}}
                 </a>
               </li>
-              <li style="list-style: none">
-                <a style="font-size: 22px;" routerLink="/related-definition">
-                  <button mat-raised-button>{{showContent[18]}}</button>
-                </a>
+              <li style="list-style: none; margin-top: 20px;">
+                <button mat-raised-button  style="font-size: 18px;" routerLink="/related-definition" type="button" (click)="jumpToPageTop()">{{showContent[18]}}</button>
               </li>
             </ul>
             

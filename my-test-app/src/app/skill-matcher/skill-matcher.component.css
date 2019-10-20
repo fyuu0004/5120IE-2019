@@ -5,15 +5,28 @@
 }
 
 .matcher-inner-wrap {
-  border: 2px solid;
-  border-bottom-color: black;
-  border-radius: 1px;
+  width: 59%;
+  display: inline-block;
+}
+
+.matcher-side-wrap {
+  width: 39%;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.matcher-side-wrap p {
+  font-size:22px;
+  font-weight:200;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .matcher-input-wrap {
   margin: 10px 0;
-  padding: 10px 30px 10px 30px;
-  width:inherit;
+  padding: 10px 30px;
   background-color: white;
 }
 
@@ -22,7 +35,15 @@
 }
 
 .matcher-input-wrap label {
-  width: 250px;
+  width: 200px;
+}
+
+.matcher-btn {
+  background-color: #6c5b7b;
+  color: #fff;
+  height: 50px;
+  width: 160px;
+  font-size: 18px;
 }
 
 .mat-add {
@@ -100,13 +121,10 @@
 
 .recommendations {
   margin: 2px;
-  padding: 20px;
   width: 33%;
   height: 400px;
   display: inline-block;
-  border-radius: 10px;
   border-color: black;
-  background-color: wheat;
   vertical-align: top;
 }
 
@@ -128,21 +146,24 @@
 }
 
 .matcher-back-btn {
-  background-color: wheat;
+  background-color: #b7a6bc;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
   font-weight: bold;
-  border-radius: 16px;
   height: 70px;
   width: 200px;
-  border-bottom-width:5px;
+  border-bottom-width: 5px;
   color: black;
+}
+
+.matcher-match-btn {
+  width: 150px;
+  height: 44px;
 }
 
 .recommendations b {
   font-size: 18px;
   color: black;
-  text-decoration: underline;
 }
 
 .matcher-title {
@@ -190,12 +211,12 @@
 }
 
 .slider {
-  margin: 10px;
-  width: 350px;
+  margin: 0 10px;
+  width: 250px;
 }
 
 label {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: black;
@@ -228,8 +249,25 @@ label {
   font-size: 20px;
 }
 
-@media screen and (max-width: 600px) {
+.mat-card {
+  background: #fff;
+  color: rgba(0,0,0,.87);
+  height: 400px;
+}
 
+.result-card {
+  margin-bottom: 30px;
+}
+
+.notice {
+  font-size: 18px;
+}
+
+.match-btn {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 600px) {
   .switch-matcher {
     width: 80%;
     height: 45px;
@@ -242,12 +280,34 @@ label {
 
   .recommendations {
     margin: 2px;
-    padding: 20px;
     width: 99%;
     display: inline-block;
     border-radius: 10px;
     border-color: black;
     background-color: wheat;
     vertical-align: top;
+  }
+
+  .matcher-side-wrap {
+    display: none;
+  }
+
+  .matcher-input-wrap {
+    width: 100%;
+    padding: 0;
+  }
+
+  .matcher-inner-wrap {
+    width: 100%;
+  }
+
+  .matcher-wrap {
+    padding: 0;
+    width: 100%
+  }
+
+  .match-btn {
+    text-align: center;
+    margin-top: 15px;
   }
 }

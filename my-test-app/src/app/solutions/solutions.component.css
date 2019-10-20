@@ -11,3 +11,7 @@
   width: 33%;
   float: left;
 }
+
+.mat-card-content p {
+  font-size: 16px;
+}

@@ -6,6 +6,7 @@ import { LanguageService } from './language.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   payCheckerNeedDropDown: boolean;
   informationNeedDropDown: boolean;
@@ -59,4 +60,7 @@ export class AppComponent implements OnInit {
     }
   }
 
+  jumpToPageTop() {
+    window.scrollTo(0, 0);
+  }
 }

@@ -3,7 +3,7 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\related-definition",
+    "\\src\\app\\pay-checker",
     "\\src\\app\\skill-matcher",
     "\\src\\app\\solutions",
     "\\src\\app\\steps",
@@ -11,6 +11,6 @@
     "\\src\\app\\validators",
     "\\src\\app\\video"
   ],
-  "SelectedNode": "\\src\\app\\steps\\steps.component.ts",
+  "SelectedNode": "\\src\\app\\language.service.ts",
   "PreviewInSolutionExplorer": false
 }

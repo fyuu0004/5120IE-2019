@@ -114,6 +114,7 @@ export class SkillMatcherComponent implements OnInit {
     this.tableService.getRegionalForecastTable().subscribe(table => this.regionalForecastTable = table);
   }
 
+  //Check the status of language selected
   languageCheck(lang: string) {
     if (lang === "en") {
       this.showContent = this.englishContent;
@@ -123,6 +124,7 @@ export class SkillMatcherComponent implements OnInit {
     }
   }
 
+  //get occupations from select industry
   getOccupation() {
     this.matcherFormGroupOne.removeControl("occupationCtrl");
     this.matcherFormGroupOne.addControl("occupationCtrl", new FormControl("", Validators.required));
@@ -139,6 +141,7 @@ export class SkillMatcherComponent implements OnInit {
     }
   }
 
+  //add a selected occupation and save it
   addOccupation() {
     this.added = true;
     if (this.selectedOccupation.length < 3) {
@@ -162,6 +165,7 @@ export class SkillMatcherComponent implements OnInit {
       this.errorMsg = "Your can add at most three occupations."
   }
 
+  //remove the selected occupation
   removeOccupation(occupation: string) {
     for (let i = 0; i < this.selectedOccupation.length; i++) {
       if (occupation === this.selectedOccupation[i]) {
@@ -186,16 +190,6 @@ export class SkillMatcherComponent implements OnInit {
     return control.get('industryCtrl').value || control.get('occupationCtrl').value === null ? null : { 'matchOneValid': false };
   }
 
-  sliderValidator(): ValidatorFn {
-    return (control: FormControl): { [key: string]: any } => {
-      if (control.value) {
-        if (control.value > 10 || control.value < 0) {
-          return { sliderError: 'Please give a point between 0 to 10.' };
-        }
-        return null;
-      }
-    };
-  }
 
   getRegion() {
     console.log(this.matcherFormGroupTwo.value.regionCtrl);
@@ -207,6 +201,7 @@ export class SkillMatcherComponent implements OnInit {
     }
   }
 
+  //calculate total score to
   totalScore(): number {
     let score: number = 0;
     console.log(typeof (score))
@@ -224,6 +219,7 @@ export class SkillMatcherComponent implements OnInit {
     }
   }
 
+  //use quick sort to rearrange copied table
   quickSort(table: any[], left: number, right: number) {
     if (left < right) {
       let index = this.pivot(table, left, right)
@@ -255,6 +251,7 @@ export class SkillMatcherComponent implements OnInit {
     return i;
   }
 
+  //find a row in a table with the closest score
   getClosest(table: any, score: number) {
     for (let i = 0; i < table.length; i++) {
       table[i].totalScore = Math.abs(table[i].totalScore - score);
@@ -263,6 +260,7 @@ export class SkillMatcherComponent implements OnInit {
     
   }
 
+  //find recommendationsin regional forecast table accrording the closest score use get for experienced matcher
   bestMatch() {
     let fastfoodTable: any[] = [], retailTable: any[] = [], hospitalityTable: any[] = [];
     let table = this.jobFilterTable;
@@ -299,30 +297,29 @@ export class SkillMatcherComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  //experienced matcher back button
   matcherBack() {
     this.hidden = false;
   }
 
+  //unexperienced matcher back button
   softBack() {
     this.turnUp = false;
   }
 
+  //yes button in first page
   chooseYes() {
     this.standingBy = false;
     this.experience = true;
   }
 
+  //no button in first page
   chooseNo() {
     this.standingBy = false;
     this.experience = false;
   }
 
-  sliderValueLimit(value: number) {
-    if (value > 10) {
-      value = 10;
-    }
-  }
-
+  //find recommendationsin regional forecast table accrording the closest score use get for unexperienced matcher
   softMatch() {
     let fastfoodTable: any[] = [], retailTable: any[] = [], hospitalityTable: any[] = [];
     let table = this.jobFilterTable;
@@ -352,6 +349,7 @@ export class SkillMatcherComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  //shift matchers
   experienceSwitch() {
     this.experience = true;
   }

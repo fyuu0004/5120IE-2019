@@ -4,13 +4,13 @@
     "\\my-test-app",
     "\\my-test-app\\src",
     "\\my-test-app\\src\\app",
-    "\\my-test-app\\src\\app\\dod",
-    "\\my-test-app\\src\\app\\pay-checker",
+    "\\my-test-app\\src\\app\\skill-matcher",
     "\\my-test-app\\src\\app\\talk-to-boss",
     "\\my-test-app\\src\\app\\thanks",
+    "\\my-test-app\\src\\app\\validators",
     "\\my-test-app\\src\\assets",
     "\\my-test-app\\src\\assets\\css"
   ],
-  "SelectedNode": "\\my-test-app\\src\\app\\skill-matcher\\skill-matcher.component.html",
+  "SelectedNode": "\\my-test-app\\src\\app\\skill-matcher\\skill-matcher.component.ts",
   "PreviewInSolutionExplorer": false
 }

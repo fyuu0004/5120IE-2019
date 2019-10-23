@@ -21,8 +21,6 @@ export class PayCheckerComponent implements OnInit {
   secondFormGroup: FormGroup;
   isEditable = false;
 
-  //cdkStep: CdkStep;
-
   industries: string[] = ["Fastfood", "Retail", "Hospitality"];
   ages: string[] = [];
   workTypes: string[] = [];
@@ -55,26 +53,11 @@ export class PayCheckerComponent implements OnInit {
 
   turnUp: boolean = false;
 
-  get ageErrorMessage(): string {
-    return this.errorMessage('age');
-  }
-
-  get workTypeErrorMessage(): string {
-    return this.errorMessage('worktype');
-  }
-
-  get levelErrorMessage(): string {
-    return this.errorMessage('level');
-  }
-
   constructor(private tableService: TableService, private languageService: LanguageService, private _formBuilder: FormBuilder) { }
-
-  /*openBottomSheet(): void {
-    this.bottomSheet.open(BottomSheet);
-  }*/
 
   ngOnInit() {
 
+    //use quick builder to create form group control the value for user interaction
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -94,6 +77,7 @@ export class PayCheckerComponent implements OnInit {
     this.languageCheck(this.languageService.getLanguage());
   }
 
+//Check the status of language selected
   languageCheck(lang: string) {
     if (lang === "en") {
       this.showContent = this.englishContent;
@@ -103,11 +87,7 @@ export class PayCheckerComponent implements OnInit {
     }
   }
 
-  private errorMessage(name): string {
-    const control = this.secondFormGroup.controls[name];
-    return ((control.touched || control.dirty) && control.invalid) ? this.showContent[20] : '';
-  }
-
+  //get "age group" column from a table
   getAllAge(table: any) {
     for (let i = 0; i < table.length; i++) {
       if (this.ages.indexOf(table[i].ageGruop) === -1) {
@@ -117,6 +97,7 @@ export class PayCheckerComponent implements OnInit {
     }
   }
 
+  //prepare table according user's selection for industry and get ages from that table
   prepareTable() {
     console.log(this.firstFormGroup.value.firstCtrl);
     console.log(this.secondFormGroup.value);
@@ -134,6 +115,7 @@ export class PayCheckerComponent implements OnInit {
     }
   }
 
+  //get "work type" column from a table
   getAllWorkType() {
     for (let i = 0; i < this.tables.length; i++) {
       if (this.secondFormGroup.value.age === this.tables[i].ageGruop) {
@@ -145,6 +127,7 @@ export class PayCheckerComponent implements OnInit {
     }
   }
 
+  //get "level" column from a table
   getAllLevel() {
     for (let i = 0; i < this.tables.length; i++) {
       if (this.secondFormGroup.value.age === this.tables[i].ageGruop && this.secondFormGroup.value.worktype === this.tables[i].workType) {
@@ -156,6 +139,7 @@ export class PayCheckerComponent implements OnInit {
     }
   }
 
+  //get the results from user selection based on industry
   submit() {
     for (let i = 0; i < this.tables.length; i++) {
       if (this.secondFormGroup.value.age === this.tables[i].ageGruop && this.secondFormGroup.value.worktype === this.tables[i].workType && this.secondFormGroup.value.level === this.tables[i].level) {
@@ -175,6 +159,7 @@ export class PayCheckerComponent implements OnInit {
     }
   }
 
+  //change the industry will clear previous selections 
   industryChange() {
     this.ages = [];
     this.workTypes = [];
@@ -188,6 +173,7 @@ export class PayCheckerComponent implements OnInit {
     console.log(this.levels)
   }
 
+  //change the details will clear the result
   detailChange() {
     this.hourlyPayRate = "";
     this.saturday = "";
